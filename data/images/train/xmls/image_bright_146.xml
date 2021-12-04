@@ -1,0 +1,38 @@
+<annotation>
+	<folder>testjpgs</folder>
+	<filename>image_bright_146.jpg</filename>
+	<path>C:\Users\mycom\Google 드라이브\test-paper-detector\detectron2\data\images_new\train\testjpgs\image_bright_146.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>765</width>
+		<height>1120</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>30</xmin>
+			<ymin>109</ymin>
+			<xmax>380</xmax>
+			<ymax>558</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>386</xmin>
+			<ymin>112</ymin>
+			<xmax>726</xmax>
+			<ymax>300</ymax>
+		</bndbox>
+	</object>
+</annotation>

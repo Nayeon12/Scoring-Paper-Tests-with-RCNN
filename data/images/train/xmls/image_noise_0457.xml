@@ -1,0 +1,38 @@
+<annotation>
+	<folder>testjpgs</folder>
+	<filename>image_noise_0457.jpg</filename>
+	<path>C:\Users\mycom\Google 드라이브\test-paper-detector\detectron2\data\images_new\train\testjpgs\image_noise_0457.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>842</width>
+		<height>1191</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>74</xmin>
+			<ymin>152</ymin>
+			<xmax>416</xmax>
+			<ymax>287</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>421</xmin>
+			<ymin>151</ymin>
+			<xmax>758</xmax>
+			<ymax>477</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,38 @@
+<annotation>
+	<folder>testjpgs</folder>
+	<filename>image_warp_208.jpg</filename>
+	<path>C:\Users\mycom\Google 드라이브\test-paper-detector\detectron2\data\images_new\train\testjpgs\image_warp_208.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>842</width>
+		<height>1191</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>87</xmin>
+			<ymin>147</ymin>
+			<xmax>410</xmax>
+			<ymax>272</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>question</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>419</xmin>
+			<ymin>143</ymin>
+			<xmax>734</xmax>
+			<ymax>456</ymax>
+		</bndbox>
+	</object>
+</annotation>
