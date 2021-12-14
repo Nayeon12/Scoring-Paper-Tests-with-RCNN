@@ -4,5 +4,12 @@
 
 [![미리보기](https://img.youtube.com/vi/nVRXpLfXRB0/0.jpg)](https://www.youtube.com/watch?v=nVRXpLfXRB0&t=9s)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
-{% include README.md.html id="nVRXpLfXRB0" %}
+<iframe width="900" height="506" src="https://www.youtube.com/embed/nVRXpLfXRB0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.youtube{
+    width: 100%;
+    height: 100%;
+}
+
+<iframe class="youtube" src="https://www.youtube.com/embed/nVRXpLfXRB0"  
+ frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
