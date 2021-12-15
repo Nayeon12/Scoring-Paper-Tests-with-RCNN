@@ -492,4 +492,4 @@ for image_path in output: ## 잘린 문제들 각각 모두
 
 for i in range(len(answer)):
   if(user_answer[i] != answer[i]):
-    print(i,"번의 정답: ", answer[i], "선택한 답 : ", user_answer[i])
+    print(i+1,"번의 정답: ", answer[i], "선택한 답 : ", user_answer[i])
