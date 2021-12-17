@@ -14,20 +14,20 @@
 
 ## Table of contents
 
-1. [프로그램 동작 과정](#1.-프로그램-동작-과정)
-2. [설치](#2.-설치) 
-3. [데이터 준비](#3.-데이터-준비)
+1. [프로그램 동작 과정](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%8F%99%EC%9E%91-%EA%B3%BC%EC%A0%95)
+2. [설치](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#2-%EC%84%A4%EC%B9%98) 
+3. [데이터 준비](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%80%EB%B9%84)
 >- step 1. 데이터 수집
 >- step 2. 데이터 라벨링
 >- step 3. csv파일 통합
 >- step 4. TFRecord 파일 생성
 >- step 5. Label map 생성
-4. [모델 학습](#4.-모델-학습)
+4. [모델 학습](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#4-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5)
 >- step 1. 배경 분리 segmentation 모델
 >- step 2. 문제 감지 모델
 >- step 3. 항목 감지 모델
-5. [모델 테스트](#5.-모델-테스트)
-6. [추가자료](#6.-추가자료)
+5. [모델 테스트](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#5-%EB%AA%A8%EB%8D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8)
+6. [추가자료](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN#6-%EC%B6%94%EA%B0%80%EC%9E%90%EB%A3%8C)
 
 ## 1. 프로그램 동작 과정
 
@@ -66,7 +66,7 @@
 
 ## 3. 데이터 준비
 
-## step 1. 데이터 수집
+### step 1. 데이터 수집
 
 두 종류의 시험지 데이터를 수집했습니다. 첫번째는 배경과 시험지를 분리하는 모델을 학습하기 위해 사용될 직접 촬영한 이미지, 두번째는 수능 시험지 pdf파일을 jpg 파일로 저장한 이미지들입니다.
 
@@ -78,7 +78,7 @@
 
 - 문제 / 항목 감지를 위한 pdf 파일 이미지 : 데이터 augmentation 을 포함해 증강된 수능 시험지 데이터 총 800장을 수집했습니다.
 
-## step 2. 데이터 라벨링
+### step 2. 데이터 라벨링
 
 LabelImg 라벨링툴로 라벨링을 진행했습니다. 뒤에서 언급되지만 배경을 분리하기 위한 모델과 문제/항목을 감지하기 위한 모델이 각각 pytorch와 tensorflow로 학습되어 필요한 데이터가 json 과 TFRecord파일로 다릅니다.
 
@@ -91,7 +91,7 @@ LabelImg 라벨링툴로 라벨링을 진행했습니다. 뒤에서 언급되지
 ![image](https://user-images.githubusercontent.com/49023717/146563000-808f52c6-435b-4af5-86b4-991c9e085bde.png)
 - 문제와 항목을 감지하기 위한 이미지들의 라벨링과 xml 파일들
 
-## step 3. csv 파일 통합
+### step 3. csv 파일 통합
 
 깃허브에 업로드된 xml to csv to tfrecord.ipynb 소스코드를 통해 xml파일을 csv파일로 만들어줍니다. 
 
@@ -100,20 +100,20 @@ LabelImg 라벨링툴로 라벨링을 진행했습니다. 뒤에서 언급되지
 각 이미지 파일에 대한 xml 파일을 csv파일로 변환해 TFRecord 생성을 위한 포맷을 맞추어 줍니다.
 >(filename, width, height, class, xmin, ymin, xmax, ymax)
 
-## step 4. TFRecord 파일 생성
+### step 4. TFRecord 파일 생성
 
 이 단계에서도 깃허브에 업로드된 xml to csv to tfrecord.ipynb 소스코드를 통해 쉽게 생성할 수 있습니다. 앞에서 생성한 csv파일을 넣어 아래 명령어를 실행합니다.
 
 `! python generate_tfrecord.py --csv_input=data/.../train_labels.csv --output_path=data/train.record`
 
-## step 5. Label map 생성
+### step 5. Label map 생성
 
 문제 감지와 항목 감지에서는 두종류의 Label map이 필요합니다. 문제 감지를 위해서는 'question'이라는 하나의 클래스만 포함하며, 항목 감지를 위해서는 선택하지 않은 항목과 선택한 항목 두가지를 감지해야 하므로 'not-choice', 'choice' 두개의 클래스가 필요합니다.
 
 
 ## 4. 모델 학습
 
-## step 1. 배경 분리 segmentation 모델
+### step 1. 배경 분리 segmentation 모델
 
 ![image](https://user-images.githubusercontent.com/49023717/146564708-c421dd6d-fdad-493d-9172-b607aed5df8e.png)
 
@@ -123,7 +123,7 @@ LabelImg 라벨링툴로 라벨링을 진행했습니다. 뒤에서 언급되지
 
 Pytorch의 Detectron2 라이브러리를 사용해 학습을 진행했습니다. 생성한 json 파일과 이미지들을 미리학습된 모델의 객체로 추가하고 학습을 진행합니다.
 
-## step 2. 문제 감지 모델
+### step 2. 문제 감지 모델
 
 ![image](https://user-images.githubusercontent.com/49023717/146568227-70840b44-da74-481a-b93f-fbd78d9cde24.png)
 
@@ -148,7 +148,7 @@ Pytorch의 Detectron2 라이브러리를 사용해 학습을 진행했습니다.
 
 loss값이 0.0~0.2에 계속 머물러 학습을 종료 했고 1328 step을 진행했습니다.
 
-## step 3. 항목 감지 모델
+### step 3. 항목 감지 모델
 
 항목감지 모델도 문제 감지 모델을 학습하는 과정과 동일합니다. 여기서는 클래스 두개를 감지해야 하므로 config 파일의 num_classes: 2 로 수정해주면 됩니다.
 
