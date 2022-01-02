@@ -129,7 +129,7 @@ Pytorch의 Detectron2 라이브러리를 사용해 학습을 진행했습니다.
 
 문제 / 항목 감지 모델 모두 Faster RCNN모델을 사용했습니다. Faster rcnn 은 convolutional feature map이 Region Proposal단계 에서도 쓰이도록 하여 속도 측면에서 성능을 향상시킨 모델입니다. Tensorflow Object Detection API에서 제공되는 모델 중 속도는 느리지만 가장 성능이 좋은 모델을 선택했습니다.
 
-앞에서 생성한 데이터 파일들을 위 디렉토리 구성으로 셋팅하면 학습을 진행하게 됩니다. 디렉토리에는 미리 학습된 Faster rcnn inception resnet v2 atrous coco 모델의 체크포인트와 추론그래프가 포함됩니다. 또한 제공되는 [faster_rcnn_inception_resnet_v2_atrous_coco.config](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN/tree/main/model)파일을 수정해주어야 합니다. 
+앞에서 생성한 데이터 파일들을 위 디렉토리 구성으로 셋팅하면 학습을 진행하게 됩니다. 디렉토리에는 미리 학습된 Faster rcnn inception resnet v2 atrous coco 모델의 체크포인트와 추론그래프가 포함됩니다. 미리 학습된 모델은 [model download](https://github.com/tensorflow/models/blob/r1.12.0/research/object_detection/g3doc/detection_model_zoo.md)에서 가능합니다. 또한 API에서 제공되는 [faster_rcnn_inception_resnet_v2_atrous_coco.config](https://github.com/Nayeon12/Scoring-Paper-Tests-with-RCNN/tree/main/model)파일을 수정해주어야 합니다. 
 
 ---
 > 10 num_classes: 1<br/>
